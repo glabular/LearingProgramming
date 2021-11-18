@@ -1,0 +1,151 @@
+using System;
+
+namespace helloapp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //ЗАДАНИЕ 0
+            int[,] mas0 =
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            Console.WriteLine("{");
+            for (int i = 0; i <= mas0.GetUpperBound(0); i++)
+            {
+                Console.Write("    {");
+
+                for (int j = 0; j <= mas0.GetUpperBound(1); j++)
+                {
+                    // если число не первое в цикле
+                    // вывести запятую и пробел
+                    // вывести число
+
+                    if (j != 0) // число не первое в цикле
+                    {
+                        Console.Write(", "); // вывести запятую и пробел
+                    }
+                    else // число первое в цикле
+                    {
+                        Console.Write(" "); // вывести только пробел
+                    }
+
+                    Console.Write(mas0[i, j]); // вывести число                   
+                }
+
+                Console.Write(" }");
+                if (i != mas0.GetUpperBound(0))
+                {
+                    Console.Write(","); // вывести только, если это не последний блок в цикле
+                }
+                else
+                {
+                    // do nothing
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("}");
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+            //ЗАДАНИЕ 0.1
+            Console.Write("{");
+            for (int i = 0; i <= mas0.GetUpperBound(0); i++)
+            {
+                Console.Write("{");
+
+                for (int j = 0; j <= mas0.GetUpperBound(1); j++)
+                {
+                    if (j != 0) // число не первое в цикле
+                    {
+                        Console.Write(", "); // вывести запятую и пробел
+                    }
+                    else // число первое в цикле
+                    {
+                        Console.Write(" "); // вывести только пробел
+                    }
+
+                    Console.Write(mas0[i, j]); // вывести число                   
+                }
+
+                Console.Write(" }");
+
+                if (i != mas0.GetUpperBound(0))
+                {
+                    Console.Write(", "); // вывести запятую после блока только, если это не последний блок в цикле
+                }
+                else
+                {
+                    // do nothing
+                }
+            }
+
+            Console.WriteLine("}");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            //ЗАДАНИЕ
+            int[,,] mas =
+            {
+                { // Dimension 1 (index 0) - 0
+                    { 1, 2 }, // Dimension 2 (index 1) - 0
+                    { 3, 4 } // Dimension 2 - 0
+                },
+                { // Dimension 1 - 1
+                    { 4, 5 },
+                    { 6, 7 }
+                },
+                { // Dimension 1 - 2
+                    { 7, 8 },
+                    { 9, 10 }
+                },
+                { // Dimension 1 - 3
+                    { 10, 11 },
+                    { 12, 13 }
+                }
+            };
+
+            Console.Write("{");
+            for (int i = 0; i <= mas.GetUpperBound(0); i++)
+            {
+                Console.Write("{");
+                for (int j = 0; j <= mas.GetUpperBound(1); j++)
+                {
+                    Console.Write("{");                    
+
+                    for (int k = 0; k <= mas.GetUpperBound(2); k++)
+                    {
+                        if (k != 0) // число не первое в цикле
+                        {                            
+                            Console.Write(" , "); // вывести запятую и пробел
+                        }
+                        
+                        Console.Write($"{mas[i, j, k]}");
+                    }
+
+                    Console.Write("}");
+                    if (j != mas.GetUpperBound(1))
+                    {
+                        Console.Write(" , ");
+                    }
+                }
+
+                Console.Write("}");
+                if (i != mas.GetUpperBound(0)) // не выводить, если это был последний набор чисел
+                {
+                    Console.Write(" , ");
+                }
+            }
+
+            Console.Write("}");
+
+        }
+    }
+}
